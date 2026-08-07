@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Para ti, Yoli</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Fondo de estrellas fijo -->
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+
+    <!-- Contenedor de corazones (lluvia) -->
+    <div id="hearts"></div>
+
+    <!-- Contenedor de confeti -->
+    <div id="confetti"></div>
+
+    <!-- ========== PANTALLA 1: Máquina de escribir ========== -->
+    <div class="pantalla activa" id="p1">
+        <div class="contenido centrado">
+            <p id="typewriter" class="typewriter-text"></p>
+        </div>
+    </div>
+
+    <!-- ========== PANTALLA 2 ========== -->
+    <div class="pantalla" id="p2">
+        <div class="contenido centrado">
+            <p class="texto-grande fade-in">Todo empezó el 28 de junio de 2026.</p>
+            <button class="btn" onclick="siguiente()">Continuar</button>
+        </div>
+    </div>
+
+    <!-- ========== PANTALLA 3 ========== -->
+    <div class="pantalla" id="p3">
+        <div class="contenido centrado">
+            <div class="texto-bloque fade-in">
+                <p>Desde ese día no hemos dejado de hablar ni un solo instante.</p>
+                <p>Había algo diferente. Una conexión que no se puede explicar con palabras.</p>
+                <p>Parecía que nos conocíamos de antes. Como si el tiempo solo hubiera estado esperando el momento exacto para juntarnos.</p>
+                <p>Nunca había sentido algo así con nadie.</p>
+            </div>
+            <button class="btn" onclick="siguiente()">Continuar</button>
+        </div>
+    </div>
+
+    <!-- ========== PANTALLA 4 ========== -->
+    <div class="pantalla" id="p4">
+        <div class="contenido centrado">
+            <div class="texto-bloque fade-in">
+                <p>Madrid y Alfaz del Pi.</p>
+                <p>Kilómetros de distancia que, de alguna forma, nunca importaron.</p>
+                <p>Cada mensaje, cada llamada, cada plan… todo se sentía cercano.</p>
+                <p>Y cuando por fin te vi, lo confirmé todo.</p>
+                <p>Estabas exactamente donde debías estar.</p>
+            </div>
+            <button class="btn" onclick="siguiente()">Continuar</button>
+        </div>
+    </div>
+
+    <!-- ========== PANTALLA 5: Foto ========== -->
+    <div class="pantalla" id="p5">
+        <div class="contenido centrado">
+            <div class="foto-container fade-in">
+                <img src="foto.jpg" alt="Un momento especial" class="foto">
+            </div>
+            <p class="texto-medio fade-in delay-1">Hay miradas que se quedan para siempre.</p>
+            <button class="btn" onclick="siguiente()">Continuar</button>
+        </div>
+    </div>
+
+    <!-- ========== PANTALLA 6 ========== -->
+    <div class="pantalla" id="p6">
+        <div class="contenido centrado">
+            <div class="texto-bloque fade-in">
+                <p>Hace años coincidimos sin conocernos.</p>
+                <p>Estábamos en el mismo lugar, respirando el mismo aire, sin saber que el destino ya estaba escribiendo nuestra historia.</p>
+                <p>Ahora todo tiene sentido.</p>
+                <p>Cada camino, cada decisión, cada espera… nos trajo hasta aquí.</p>
+            </div>
+            <button class="btn" onclick="siguiente()">Continuar</button>
+        </div>
+    </div>
+
+    <!-- ========== PANTALLA 7: Segunda foto ========== -->
+    <div class="pantalla" id="p7">
+        <div class="contenido centrado">
+            <div class="foto-container fade-in">
+                <img src="foto2.jpg" alt="Otro momento" class="foto">
+            </div>
+            <div class="texto-bloque fade-in delay-1">
+                <p>Hay personas que llegan a tu vida y lo cambian todo.</p>
+                <p>Tú lo cambiaste todo.</p>
+            </div>
+            <button class="btn" onclick="siguiente()">Continuar</button>
+        </div>
+    </div>
+
+    <!-- ========== PANTALLA 8: La pregunta ========== -->
+    <div class="pantalla" id="p8">
+        <div class="contenido centrado">
+            <p id="yoli-text" class="texto-grande oculto">Yoli...</p>
+            <p id="pregunta-text" class="texto-medio oculto">Hay una única pregunta que quiero hacerte.</p>
+            <p id="pregunta-final" class="texto-pregunta oculto">¿Quieres ser mi novia?</p>
+            <button id="btn-si" class="btn btn-si oculto" onclick="aceptar()">❤️ Sí quiero ❤️</button>
+        </div>
+    </div>
+
+    <!-- ========== PANTALLA FINAL ========== -->
+    <div class="pantalla" id="final">
+        <div class="contenido centrado">
+            <div class="foto-container final-foto fade-in">
+                <img src="foto.jpg" alt="Nosotros" class="foto">
+            </div>
+
+            <div id="contador" class="contador fade-in delay-1">
+                <div class="tiempo">
+                    <span id="years">0</span>
+                    <small>años</small>
+                </div>
+                <div class="tiempo">
+                    <span id="months">0</span>
+                    <small>meses</small>
+                </div>
+                <div class="tiempo">
+                    <span id="days">0</span>
+                    <small>días</small>
+                </div>
+                <div class="tiempo">
+                    <span id="hours">0</span>
+                    <small>horas</small>
+                </div>
+                <div class="tiempo">
+                    <span id="minutes">0</span>
+                    <small>min</small>
+                </div>
+                <div class="tiempo">
+                    <span id="seconds">0</span>
+                    <small>seg</small>
+                </div>
+            </div>
+
+            <p class="texto-pequeño fade-in delay-2">
+                Este contador no mide el tiempo que llevamos juntos.<br>
+                Mide el comienzo de todos los recuerdos que nos quedan por vivir.
+            </p>
+
+            <button class="btn fade-in delay-3" onclick="mostrarCarta()">Leer mi carta</button>
+        </div>
+    </div>
+
+    <!-- ========== CARTA ========== -->
+    <div class="pantalla" id="carta">
+        <div class="contenido carta-contenido">
+            <div class="carta-glass fade-in">
+                <h2>Para ti</h2>
+                <div class="carta-texto">
+                    <p>Yoli,</p>
+                    <p>El 28 de junio de 2026 empezamos a hablar. Desde ese día no hemos pasado ni un solo día sin escribirnos, sin escucharnos, sin sentirnos cerca aunque hubiera kilómetros de por medio.</p>
+                    <p>Soy de Fuenlabrada y tú vives en Alfaz del Pi. Sobre el papel parecía lejos. En la realidad, nunca lo fue. Cada viaje que hice para verte, cada plan que hicimos, cada conversación a cualquier hora… todo se sintió natural, como si llevara años esperando ese momento.</p>
+                    <p>Hace tiempo coincidimos sin conocernos. Estábamos en el mismo lugar, sin saber que el destino ya estaba tejiendo algo. Ahora, mirando hacia atrás, todo encaja. Cada decisión, cada camino, cada espera… nos trajo hasta aquí.</p>
+                    <p>Nunca había sentido una conexión tan clara con alguien. Hablar contigo es fácil. Estar contigo es fácil. Imaginar un futuro contigo también lo es.</p>
+                    <p>Quiero construir ese futuro. Quiero los recuerdos que todavía no existen. Quiero los días ordinarios y los extraordinarios. Quiero seguir eligiendo esto, cada día.</p>
+                    <p>Gracias por existir. Gracias por haber llegado.</p>
+                    <p class="firma">Con todo lo que siento,<br>tu persona.</p>
+                </div>
+                <button class="btn btn-cerrar" onclick="cerrarCarta()">Cerrar carta</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
